@@ -1,0 +1,56 @@
+﻿@using System.Xml.Linq
+@using codevist.Wirecard.DeveloperPortal.Core
+@using Newtonsoft.Json
+
+@{
+    ViewBag.Title = "Bilgi Sms'i Gönderim Servisi";
+}
+
+<h2>Bilgi Sms'i Gönderim Servisi</h2>
+<hr/>
+<form action="" method="post">
+
+    <div class="row">
+        <label class="col-md-12 control-label" for="">SMS Gönderilecek Telefon Numarası:</label>
+        <div class="col-md-2">
+            <input name="gsm" type="text" id="txtPhoneNumber" value="" class="form-control" placeholder="5XXXXXXXXX" required="">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <label class="col-md-12 control-label" for="">SMS Metni (Türkçe karakter kullanılmamalı)</label>
+        <div class="col-md-2">
+            <textarea name="content" rows="8" cols="60"   required=""></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-md-12 control-label" for=""></label>
+        <div class="col-md-4">
+            <br />
+            <button type="submit" id="" name="" class="btn btn-danger">Bilgi Sms'i Gönder</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <br />
+        <div class="col-md-6">
+            <pre>
+                @if (Model!= null)
+                {
+                    string xmlFormatted = XDocument.Parse(XmlBuilder.GetXMLFromObjectWCFService(Model)).ToString();
+                    @Html.Raw(Html.Encode(xmlFormatted));
+                }
+        </pre>
+        </div>
+    </div>
+</form>
+@section Plugins
+{
+    <script src="~/Assets/js/jquery.maskedinput.min.js"></script>
+}
+@section Scripts{
+    <script>
+        $("#txtPhoneNumber").mask("9999999999", { placeholder: "__________" });
+    </script>
+}

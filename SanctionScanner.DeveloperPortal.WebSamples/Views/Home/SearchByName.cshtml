@@ -1,0 +1,147 @@
+﻿@model SanctionScanner.DeveloperPortal.WebSamples.Models.JsonResponse
+@using System.Xml.Linq
+@using Newtonsoft.Json
+
+@{
+    ViewBag.Title = "Search By Name";
+
+    var json = "";
+    if (Model != null)
+    { json = Model?.response; }
+
+}
+<link href="~/Assets/css/json-viewer.css" rel="stylesheet">
+
+<h2>Search By Name</h2>
+<hr />
+<p>
+    <form action="" method="post">
+        <div class="row">
+            <br />
+            <div class="col-md-6">
+                Name:
+                <br />
+                <input type="text" name="name" />
+                <br />
+                <br />
+
+                Search Type:
+                <br />
+                <select name="searchType">
+                    <option value="1">Individual</option>
+                    <option value="2">Corporate</option>
+                    <option value="3">Vessel</option>
+                    <option value="4">Aircraft </option>
+                    <option value="0">Any </option>
+                </select>
+                <br />
+                <br />
+
+                Start:
+                <br />
+                <input type="number" name="start" value="0" max="50" min="0" />
+                <br />
+                <br />
+                Limit:
+                <br />
+                <input type="number" name="limit" value="50" max="50" min="1" />
+                <br />
+                <br />
+                Out Reference Number:
+                <br />
+                <input type="text" name="outReferenceNumber" />
+                <br />
+                <br />
+            </div>
+            <div class="col-md-6">
+                Birth Year:
+                <br />
+                <input type="text" name="birthYear" />
+                <br />
+                <br />
+                Min Match Rate:
+                <br />
+                <select name="minMatchRate">
+                    <option value="0">0%</option>
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40% </option>
+                    <option value="50">50% </option>
+                    <option value="60">60% </option>
+                    <option value="70">70% </option>
+                    <option value="80">80% </option>
+                    <option value="90">90% </option>
+                    <option value="100">100% </option>
+                </select>
+                <br />
+                <br />
+                Is Deep Search:
+                <br />
+                @Html.CheckBox("isDeepSearch", new { @name = "isDeepSearch" })
+                <br />
+                <br />
+                Reference Number:
+                <br />
+                <input type="text" name="referenceNumber" />
+                <br />
+                <br />
+
+            </div>
+        </div>
+
+
+        <button type="submit" id="" name="" class="btn btn-danger">Search</button>
+        <br />
+        <br />
+        <div class="row">
+            <br />
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </form>
+</p>
+
+@if (Model != null)
+{
+<textarea style="width: 0; min-height: 0;" hidden>@Html.Raw(Html.Encode(Model.response))</textarea>
+
+}
+<div id="json"></div>
+@*<pre class="line-numbers language-json" lang="json">
+    <code class="language-json">
+            @Html.Raw(Html.Encode(Model.response))
+        </code>
+    </pre>*@
+
+
+<script src="~/Assets/js/json-viewer.js"></script>
+
+<script>
+
+    var jsonObj = {};
+    var jsonViewer = new JSONViewer();
+    document.querySelector("#json").appendChild(jsonViewer.getContainer());
+    var textarea = document.querySelector("textarea");
+
+    // textarea value to JSON object
+    var setJSON = function () {
+        try {
+            var value = textarea.value;
+            jsonObj = JSON.parse(value);
+        }
+        catch (err) {
+            alert(err);
+        }
+    };
+
+    // load default value
+    if ('@json' !== '')
+    {
+        setJSON();
+        jsonViewer.showJSON(jsonObj);
+    }
+
+
+</script>

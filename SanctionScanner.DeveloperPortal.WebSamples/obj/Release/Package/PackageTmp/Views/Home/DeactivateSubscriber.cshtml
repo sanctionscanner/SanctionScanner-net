@@ -1,0 +1,34 @@
+﻿@using System.Xml.Linq
+@using codevist.Wirecard.DeveloperPortal.Core
+@using Newtonsoft.Json
+@model codevist.Wirecard.DeveloperPortal.Core.SubscriberService.MOperationOutput
+@{
+    ViewBag.Title = "DeactivateSubscriber";
+}
+<h2> Abonelik İptal Etme</h2>
+<hr />
+<form action="" method="post">
+
+    <!-- Text input-->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="">Abonelik Numarası:</label>
+        <div class="col-md-6">
+            <input name="subscriberId" type="text" value="" class="form-control" required="">
+        </div>
+        <label class="col-md-12 control-label" for=""></label>
+        <div class="col-md-4">
+            <br />
+            <button type="submit" id="" name="" class="btn btn-danger">Abone İptal Et</button>
+        </div>
+        <label class="col-md-12 control-label" for=""></label>
+        <div class="col-md-6">
+        <pre>
+            @if (Model!= null)
+            {
+                string xmlFormatted = XDocument.Parse(XmlBuilder.GetXMLFromObjectWCFService(Model)).ToString();
+                @Html.Raw(Html.Encode(xmlFormatted));
+            }
+        </pre>
+        </div>
+    </div>
+</form>

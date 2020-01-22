@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Ortak Ödeme Formu 3D İle Ödeme";
+}
+
+<h2>Sale3DURLProxy</h2>
+
+<fieldset>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Ürün Adı
+                </th>
+                <th>
+                    İşlem İçeriği
+                </th>
+
+                <th>
+                    İşlem Tutarı
+                </th>
+                <th>
+                    İşlem Tipi
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Bilgisayar
+                </td>
+                <td>
+                    BLGSYR01
+                </td>
+                <td>
+                    0,01 TL
+                </td>
+                <td>
+                    1 //Tek Çekim
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+<div class="row">
+    <label class="col-md-12 control-label" for=""></label>
+    <div class="col-md-4">
+        <br />
+        <a href="@Url.Action("WDTicketSaleUrlProxyComplete","Home")" id="" name="" class="btn btn-danger">3D Olmadan Ödeme Yap</a>
+    </div>
+</div>
+

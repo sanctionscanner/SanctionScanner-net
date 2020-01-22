@@ -1,0 +1,85 @@
+﻿@model codevist.Wirecard.DeveloperPortal.Core.Response.ServicesXmlResponse
+@{
+    ViewBag.Title = "CCProxySale";
+}
+
+<h2>CCProxySale</h2>
+
+<br/>
+<fieldset>
+    <legend><label style="font-weight:bold;width:250px;">Proxy Sale Bilgileri</label></legend>
+    <label style="font-weight:bold;">Servis Adı &nbsp; :   &nbsp; </label> CCProxy<br>
+    <label style="font-weight:bold;">Operasyon Adı &nbsp; :&nbsp; </label> Sale <br>
+    <label style="font-weight:bold;">UserCode  &nbsp;:  &nbsp;</label> Wirecard tarafından verilen değer <br>
+    <label style="font-weight:bold;">Pin &nbsp;:  &nbsp;</label> Wirecard tarafından verilen değer <br>
+    <label style="font-weight:bold;">Fiyat &nbsp;:  &nbsp;</label> 0,01 TL <br>
+    <label style="font-weight:bold;">MPAY &nbsp;:  &nbsp;</label> Benzersiz işlem numarası. Bu parametre işlem sonucunda aynen bize geri gönderilir. <br>
+    <label style="font-weight:bold;">Ipaddress &nbsp;:  &nbsp;</label>İşlem yapan kullanıcının ip adresi<br>
+    <label style="font-weight:bold;">İşlem İçeriği &nbsp;:  &nbsp;</label>Bilgisayar Ödemesi <br>
+    <label style="font-weight:bold;">Açıklama &nbsp;:  &nbsp;</label>Ödeme işleminin tanımı <br>
+    <label style="font-weight:bold;">Ekstra Parametre &nbsp;:  &nbsp;</label>Bu alanın boş olarak gönderilmesi gerekmektedir. <br>
+    
+     
+</fieldset>
+
+
+<form action="" method="post" class="form-horizontal">
+    <fieldset>
+        <!-- Form Name -->
+        <legend><label style="font-weight:bold;width:250px;">Kart Bilgileriyle Ödeme</label></legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="">Kart Sahibi Adı Soyadı:</label>
+            <div class="col-md-4">
+                <input value="Fatih Coşkun" name="ownerName" class="form-control input-md">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="">  Kart Numarası:</label>
+            <div class="col-md-4">
+                <input value="4282209004348015" name="creditCardNo" class="form-control input-md">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="">  Son Kullanma Tarihi Ay/Yıl: </label>
+            <div class="col-md-4">
+                <input value="12" name="expireMonth" class="form-control input-md" width="50px">
+                <input value="2022" name="expireYear" class="form-control input-md" width="50px">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="">  CVC: </label>
+            <div class="col-md-4">
+                <input value="123" name="cvv" class="form-control input-md">
+            </div>
+
+        </div> 
+         <div class="form-group">
+            <label class="col-md-4 control-label" for="">  Taksit Sayısı: </label>
+            <div class="col-md-4">
+                
+                <select name="installmentCount">
+                    <option value="0">Peşin</option>
+                    <option value="3">3</option>
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <!-- Button -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for=""></label>
+        <div class="col-md-4">
+            <button type="submit" id="" name="" class="btn btn-danger"> Ödeme Yap</button>
+        </div>
+    </div>
+</form>
+@if (Model != null)
+{
+    <pre>
+        @Html.Raw(Html.Encode(Model.XmlResponse))
+    </pre>
+}

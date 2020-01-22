@@ -1,0 +1,90 @@
+﻿@model codevist.Wirecard.DeveloperPortal.Core.Response.PaymentFormBaseResponse
+@{
+    ViewBag.Title = "Başarılı Ödeme İşlemi";
+}
+
+<h2>Ödemeniz Başarıyla gerçekleştirildi</h2>
+
+
+@if (Model.OrderId != null)
+{
+    <div class="col-md-6">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Ödemenize ait sonuçları aşağıdaki gibidir.</legend>
+            <!-- Text input-->
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for="">OrderId:</label>
+                <div class="col-md-4">
+
+                    @Model.OrderId
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for="">MPay:</label>
+                <div class="col-md-4">
+                    @if (Model.MPay != string.Empty)
+                {
+                        @Model.MPay
+                    }
+                    else
+                    {
+                        @("-")
+                    }
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for="">  StatusCode</label>
+                <div class="col-md-4">
+                    @Model.StatusCode
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for=""> Result Code: </label>
+                <div class="col-md-4">
+                    @Model.ResultCode
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for="">  Result Message: </label>
+                <div class="col-md-4">
+                    @Model.ResultMessage
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for=""> LastTransactionDate: </label>
+                <div class="col-md-4">
+                    @Model.LastTransactionDate
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for=""> MaskedCCNo: </label>
+                <div class="col-md-4">
+                    @Model.MaskedCCNo
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for=""> CCTokenId: </label>
+                <div class="col-md-4">
+                    @Model.CCTokenId
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-4 control-label" for=""> ExtraParam: </label>
+                <div class="col-md-4">
+                    @if (Model.ExtraParam != string.Empty)
+                {
+                        @Model.ExtraParam
+                    }
+                    else
+                    {
+                        @("-")
+                    }
+                </div>
+            </div>
+        </fieldset>
+    </div>
+}
+
+

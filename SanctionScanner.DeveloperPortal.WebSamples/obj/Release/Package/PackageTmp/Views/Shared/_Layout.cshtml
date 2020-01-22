@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - WireCard Developer Portal</title>
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <!-- Our Custom CSS -->
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link rel="icon" href="~/favicon.ico">
+    <!-- Scrollbar Custom CSS -->
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="/"><img src="~/Assets/img/logo.png" width="130" height="26" /></a>
+                
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Sms Ödeme Servisleri</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="@Url.Action("BasicApi","Home")">Basic Api </a></li>
+                        <li><a href="@Url.Action("ProApi","Home")">Pro Api</a></li>
+                        <li><a href="@Url.Action("ApiPlus","Home")">Api Plus</a></li>
+                        <li><a href="@Url.Action("SendInformationSmsService","Home")">Bilgi Sms Gönderim Servisi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Abonelik Servisleri</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li><a href="@Url.Action("SelectSubscriber","Home")">Abonelik Listeleme</a></li>
+                        <li><a href="@Url.Action("SelectSubscriberDetail","Home")">Abonelik Detay</a></li>
+                        <li><a href="@Url.Action("DeactivateSubscriber","Home")">Abone Sil</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="@Url.Action("CCProxySale","Home")">Ödeme Formu</a>
+                    
+                </li>
+                <li>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">Ortak Ödeme Formu</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li><a href="@Url.Action("WDTicketSale3DURLProxy","Home")">3D Secure İle ödeme</a></li>
+                        <li><a href="@Url.Action("WDTicketSaleURLProxy","Home")">3D Secure Olmadan Ödeme</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">Mağaza Servisleri</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu3">
+                        <li><a href="@Url.Action("MarketPlaceAddSubPartner","Home")">Mağaza Oluştur</a></li>
+                        <li><a href="@Url.Action("MarketPlaceUpdateSubPartner","Home")">Mağaza Güncelle</a></li>
+                        <li><a href="@Url.Action("MarketPlaceDeactiveSubPartner","Home")">Mağaza Sil</a></li>
+                        <li><a href="@Url.Action("MarketPlaceSale3DSec","Home")">3D Secure ile Ödeme </a></li>
+                        <li><a href="@Url.Action("MarketPlaceMPSale","Home")">3D Secure olmadan Ödeme </a></li>
+                        <li><a href="@Url.Action("MarketPlaceReleasePayment","Home")">Ödeme Onay Servisi </a></li>
+                    </ul>
+                </li>
+            </ul>  
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <i class="glyphicon glyphicon-align-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+            @RenderBody()
+          
+        </div>        
+    </div>
+    <script src="~/Assets/js/jquery-1.10.2.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    @RenderSection("Plugins", false/*required*/)
+    <!--End Begin Page Level Plugin-->
+    @RenderSection("Scripts", false/*required*/)
+    <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+    </script>
+
+</body>
+</html>

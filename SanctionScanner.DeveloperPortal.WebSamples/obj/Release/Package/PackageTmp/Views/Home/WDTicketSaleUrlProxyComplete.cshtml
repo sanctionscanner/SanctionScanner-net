@@ -1,0 +1,12 @@
+﻿@model codevist.Wirecard.DeveloperPortal.Core.Response.WDTicketPaymentFormResponse
+@{
+    ViewBag.Title = "Sale3DURLProxyComplete";
+}
+
+<h2>Sale3DURLProxyComplete</h2>
+
+<pre>
+@Html.Raw(Html.Encode(Model.Response))
+</pre>
+
+<a href="@Model.RedirectUrl" class="btn btn-danger">Ödemeyi Tamamla</a>
