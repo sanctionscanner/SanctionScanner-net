@@ -43,3 +43,7 @@ Authorization: Basic AuthenticationKey
 ## API Collection
 
 If you wish, you can download the API collection by clicking [here](http://developer.sanctionscanner.com/Assets/API_Collection.json).
+
+## Sanction Scanner
+
+[Sanction Scanner](https://sanctionscanner.com/)
