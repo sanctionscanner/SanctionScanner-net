@@ -9,8 +9,8 @@ namespace SanctionScanner.DeveloperPortal.WebSamples.Controllers
         
         public ActionResult Index()
         {
-         
-            return View();
+
+            return RedirectToAction("SearchByName");
         }
         public ActionResult SearchByName()
         {
@@ -40,9 +40,9 @@ namespace SanctionScanner.DeveloperPortal.WebSamples.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchByIdentity(string id,int start, int limit, string outReferenceNumber,string referenceNumber)
+        public ActionResult SearchByIdentity(string id,int start, int limit, string outReferenceNumber,string referenceNumber, int searchType)
         {
-            var url = "api/Search/SearchByIdentity?id=" + id + "&start=" + start + "&limit=" + limit + "&referenceNumber=" + referenceNumber + "&outReferenceNumber=" + outReferenceNumber;
+            var url = "api/Search/SearchByIdentity?id=" + id + "&start=" + start + "&limit=" + limit + "&referenceNumber=" + referenceNumber + "&outReferenceNumber=" + outReferenceNumber + "&searchType=" + searchType;
             var response = HttpGet(url);
             if (response != null)
             {
@@ -82,9 +82,9 @@ namespace SanctionScanner.DeveloperPortal.WebSamples.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchByHashedIdentity(string id, int start, int limit, string outReferenceNumber, string referenceNumber)
+        public ActionResult SearchByHashedIdentity(string id, int start, int limit, string outReferenceNumber, string referenceNumber, int searchType)
         {
-            var url = "api/Search/SearchByHashedIdentity?id=" + id + "&start=" + start + "&limit=" + limit + "&referenceNumber=" + referenceNumber + "&outReferenceNumber=" + outReferenceNumber;
+            var url = "api/Search/SearchByHashedIdentity?id=" + id + "&start=" + start + "&limit=" + limit + "&referenceNumber=" + referenceNumber + "&outReferenceNumber=" + outReferenceNumber + "&searchType=" + searchType;
             var response = HttpGet(url);
             if (response != null)
             {
