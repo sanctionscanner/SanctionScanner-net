@@ -19,7 +19,8 @@
             </div>
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Search
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                        Search
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li><a href="@Url.Action("SearchByName","Home")">Search By Name</a></li>
@@ -27,6 +28,49 @@
                         <li><a href="@Url.Action("SearchByPassportNo","Home")">Search By Passport Number</a></li>
                         <li><a href="@Url.Action("SearchByHashedIdentity","Home")">Search By Hashed Identity Number</a></li>
                         <li><a href="@Url.Action("SearchByHashedPassportNo","Home")">Search By Hashed Passport Number</a></li>
+                    </ul>
+
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">
+                        Search Operations
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        <li><a href="@Url.Action("GetMyOrganizationUsers","Home")">Get My Organization Users</a></li>
+                        <li><a href="@Url.Action("AssignUserToSearch","Home")">Assign User To Search</a></li>
+                        <li><a href="@Url.Action("SetSearchMatchStatus","Home")">Set Search's Match Status</a></li>
+                        <li><a href="@Url.Action("SetSearchRiskLevel","Home")">Set Search's Risk Level</a></li>
+                        <li><a href="@Url.Action("AddMemoToSearch","Home")">Add Memo To Search</a></li>
+                        <li><a href="@Url.Action("AddSearchToSafeList","Home")">Add Search To Safe List</a></li>
+                        <li><a href="@Url.Action("DeleteFromSafeListByReferenceNumber","Home")">Delete Search From Safe List</a></li>
+                    </ul>
+
+                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">
+                        Retrieving
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu3">
+                        <li><a href="@Url.Action("GetSearchByScanId","Home")">Get Search By ScanId</a></li>
+                        <li><a href="@Url.Action("GetSearchesByReferenceNumber","Home")">Get Searches By Reference Number</a></li>
+                    </ul>
+
+                    <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false">
+                        Reporting
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu4">
+                        <li><a href="@Url.Action("GetLastWeekStatistics","Home")">Get Last Week Statistics</a></li>
+                        <li><a href="@Url.Action("GetStatisticsWithDateRange","Home")">Get Statistics With Date Range</a></li>
+                    </ul>
+
+                    <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false">
+                        List Creation
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu5">
+                        <li><a href="@Url.Action("NewBlackList","Home")">New Local List</a></li>
+                        <li><a href="@Url.Action("GetBlackListById","Home")">Get Local List By Id</a></li>
+                        <li><a href="@Url.Action("UpdateBlackList","Home")">Local List Update</a></li>
+                        <li><a href="@Url.Action("DeleteBlackList","Home")">Local List Delete</a></li>
+                        <li><a href="@Url.Action("NewWhiteList","Home")">New White List</a></li>
+                        <li><a href="@Url.Action("GetWhiteListById","Home")">Get White List By Id</a></li>
+                        <li><a href="@Url.Action("UpdateWhiteList","Home")">White List Update</a></li>
+                        <li><a href="@Url.Action("DeleteWhiteList","Home")">White List Delete</a></li>
                     </ul>
                 </li>
                 @*<li>

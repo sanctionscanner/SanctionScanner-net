@@ -3,7 +3,7 @@
 @using Newtonsoft.Json
 
 @{
-    ViewBag.Title = "Search By Passport Number";
+    ViewBag.Title = "Set Search's Match Status";
 
     var json = "";
     if (Model != null)
@@ -12,61 +12,40 @@
 }
 <link href="~/Assets/css/json-viewer.css" rel="stylesheet">
 
-<h2>
-    Search By Passport Number
-</h2>
+<h2>Set Search's Match Status</h2>
 <hr />
-<p>
     <form action="" method="post">
         <div class="row">
             <br />
             <div class="col-md-6">
-                Passport Number:
+                Scan Id:
                 <br />
-                <input type="text" name="passportNo" />
+                <input type="text" name="ScanId" />
                 <br />
                 <br />
 
-                Start:
+                Status Id:
                 <br />
-                <input type="number" name="start" value="0" max="50" min="0" />
-                <br />
-                <br />
-                Limit:
-                <br />
-                <input type="number" name="limit" value="50" max="50" min="1" />
-                <br />
-                <br />
-                Out Reference Number:
-                <br />
-                <input type="text" name="outReferenceNumber" />
+                <select name="StatusId">
+                    <option value="0">Unknown </option>
+                    <option value="1">No Match </option>
+                    <option value="2">Potential Match</option>
+                    <option value="3">False Positive</option>
+                    <option value="4">True Positive</option>
+                    <option value="5">True Positive Approve </option>
+                    <option value="6">True Positive Reject </option>
+                </select>
                 <br />
                 <br />
-                Reference Number:
-                <br />
-                <input type="text" name="referenceNumber" />
-                <br />
-                <br />
-            </div>
-            <div class="col-md-6">
-
-
-
-            </div>
+            </div>  
         </div>
 
 
         <button type="submit" id="" name="" class="btn btn-danger">Search</button>
         <br />
         <br />
-        <div class="row">
-            <br />
-            <div class="col-md-6">
-
-            </div>
-        </div>
+        
     </form>
-</p>
 
 @if (Model != null)
 {

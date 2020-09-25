@@ -1,0 +1,411 @@
+﻿@model SanctionScanner.DeveloperPortal.WebSamples.Models.JsonResponse
+@using System.Xml.Linq
+@using Newtonsoft.Json
+
+@{
+    ViewBag.Title = "New Local List";
+
+    var json = "";
+    if (Model != null)
+    { json = Model?.response; }
+
+}
+<link href="~/Assets/css/json-viewer.css" rel="stylesheet">
+
+<script type="text/javascript">
+    function check() {
+    var dropdown = document.getElementById("secim");
+    var current_value = dropdown.options[dropdown.selectedIndex].value;
+
+    if (current_value == "1") {
+        document.getElementById("gizle1").style.display = "block";
+        document.getElementById("gizle2").style.display = "block";
+        document.getElementById("gizle3").style.display = "block";
+    }
+    else {
+        document.getElementById("gizle1").style.display = "none";
+        document.getElementById("gizle2").style.display = "none";
+        document.getElementById("gizle3").style.display = "none";
+    }
+}
+</script>
+
+<h2>New Local List</h2>
+<hr />
+    <form action="" method="post">
+        <div class="row">
+            <br />
+            <div class="col-md-6">
+
+                Type Id:
+                <br />
+                <select name="TypeId" id="secim" onchange="check();">
+                    <option value="1">Individual</option>
+                    <option value="2">Corporate</option>
+                    <option value="3">Vessel</option>
+                    <option value="4">Aircraft </option>
+                </select>
+                <br />
+                <br />
+
+                 Name:
+                <br />
+                <input type="text" name="FirstName" />
+                <br />
+                <br />
+
+                <div id="gizle1">
+                    Second Name:
+                    <br />
+                    <input type="text" name="SecondName" />
+                    <br />
+                    <br />
+                </div>
+
+                <div id="gizle2">
+                    Last Name:
+                    <br />
+                    <input type="text" name="LastName" />
+                    <br />
+                    <br />
+                </div>
+
+                <div id="gizle3">
+                    Birth Day Date:
+                    <br />
+                    <input type="date" name="BirthDayDate" />
+                    <br />
+                    <br />
+                </div>
+            </div>
+                <div class="col-md-6">
+
+                    Nationality:
+                    <br />
+                    <select name="NationalityId">
+                        <option value="1">Turkish</option>
+                        <option value="2">Afghani</option>
+                        <option value="3">Aland Islands</option>
+                        <option value="4">German</option>
+                        <option value="5">American</option>
+                        <option value="6"> US Minor Outlying Islands </option>
+                        <option value="7"> Austrian </option>
+                        <option value="8">Andorian</option>
+                        <option value="9">Angolian</option>
+                        <option value="10">Anguillan</option>
+                        <option value="11">Antarctic</option>
+                        <option value="12">Antiguan, Barbudan</option>
+                        <option value="13">Argentine</option>
+                        <option value="14">Albanian</option>
+                        <option value="15">Arubian</option>
+                        <option value="16">Australian</option>
+                        <option value="17">Austrian</option>
+                        <option value="18">Azerbaijani</option>
+                        <option value="19">Bahameese</option>
+                        <option value="20">Bahrainian</option>
+                        <option value="21">Bangladeshi</option>
+                        <option value="22">Barbadian</option>
+                        <option value="23">Western Saharan</option>
+                        <option value="24">Belarusian</option>
+                        <option value="25">Belgian</option>
+                        <option value="26">Belizean</option>
+                        <option value="27">Beninese</option>
+                        <option value="28">Bermuda</option>
+                        <option value="29"> Guernsey </option>
+                        <option value="30"> Emirian </option>
+                        <option value="31"> British </option>
+                        <option value="32"> Bolivian </option>
+                        <option value="33"> Bangladeshi </option>
+                        <option value="34"> Motswana </option>
+                        <option value="35">Bouvet Island </option>
+                        <option value="36"> Brazilian </option>
+                        <option value="37"> Bruneian </option>
+                        <option value="38"> Bulgarian </option>
+                        <option value="39"> Burkinabe </option>
+                        <option value="40"> Burundian </option>
+                        <option value="41"> Bhutanese </option>
+                        <option value="42"> Cape Verdean </option>
+                        <option value="43"> Caymanian </option>
+                        <option value="44"> Gibralterian </option>
+                        <option value="45"> Algerian </option>
+                        <option value="46"> Djiboutian </option>
+                        <option value="47"> Ivorian </option>
+                        <option value="48"> Cocossian </option>
+                        <option value="49"> Cook Islander </option>
+                        <option value="50"> Chadian </option>
+                        <option value="51"> Czech </option>
+                        <option value="52"> Chinese </option>
+                        <option value="53"> Danish </option>
+                        <option value="54"> Palestinian </option>
+                        <option value="55"> Dominican </option>
+                        <option value="56"> Dominican </option>
+                        <option value="57"> Ecuadorean </option>
+                        <option value="58"> Equatorial Guinean </option>
+                        <option value="59"> Salvadorean </option>
+                        <option value="60"> Indonesian </option>
+                        <option value="61"> Eritrean </option>
+                        <option value="62"> Armenian </option>
+                        <option value="63"> Estonian </option>
+                        <option value="64"> Ethiopian </option>
+                        <option value="65"> Falkland Islander </option>
+                        <option value="66"> Faroese </option>
+                        <option value="67"> Moroccan </option>
+                        <option value="68"> Fijian </option>
+                        <option value="69"> Filipino </option>
+                        <option value="70"> Finnish </option>
+                        <option value="71"> French </option>
+                        <option value="72"> French Guianese</option>
+                        <option value="73"> French Southern Territories </option>
+                        <option value="74"> French Polynesian </option>
+                        <option value="75"> Gabonese </option>
+                        <option value="76"> Gambian </option>
+                        <option value="77"> Ghanaian </option>
+                        <option value="78"> Guinean </option>
+                        <option value="79"> Guinean </option>
+                        <option value="80"> Togolese </option>
+                        <option value="81"> Grenadian </option>
+                        <option value="82"> Greenlander </option>
+                        <option value="83"> Guadeloupean </option>
+                        <option value="84"> Guamanian </option>
+                        <option value="85"> Guatemalan </option>
+                        <option value="86"> Guyanese </option>
+                        <option value="87"> South African </option>
+                        <option value="88"> South Georgia and the South Sandwich Islands </option>
+                        <option value="89"> Sudanese </option>
+                        <option value="90"> Georgian </option>
+                        <option value="91"> Haitian </option>
+                        <option value="92"> Heard and Mcdonald Islands </option>
+                        <option value="93"> Croatian </option>
+                        <option value="94"> Indian </option>
+                        <option value="95"> Dutch </option>
+                        <option value="96"> Holy See (Vatican City State) </option>
+                        <option value="97"> Honduran </option>
+                        <option value="98"> Chinese </option>
+                        <option value="99"> Iraqi </option>
+                        <option value="100"> Manx </option>
+                        <option value="101"> British Indian Ocean Territory </option>
+                        <option value="102"> Virgin Islander </option>
+                        <option value="103"> Iranian </option>
+                        <option value="104"> Irish </option>
+                        <option value="105"> Spanish </option>
+                        <option value="106"> Israeli </option>
+                        <option value="107"> Grenadian </option>
+                        <option value="108">Swiss</option>
+                        <option value="109"> Italian </option>
+                        <option value="110"> Israeli </option>
+                        <option value="111"> Jamaican </option>
+                        <option value="112"> Japanese </option>
+                        <option value="113"> Jersey </option>
+                        <option value="114"> Cambodian </option>
+                        <option value="115"> Cambodian </option>
+                        <option value="116"> Canadian </option>
+                        <option value="117"> Mexican </option>
+                        <option value="118"> Qatari </option>
+                        <option value="119"> Kazakhstani </option>
+                        <option value="120"> Kenyan </option>
+                        <option value="121"> Cypriot </option>
+                        <option value="122"> Kyrgyzstani </option>
+                        <option value="123"> I-Kiribati </option>
+                        <option value="124"> Columbian </option>
+                        <option value="125"> Comoran </option>
+                        <option value="126"> Congolese </option>
+                        <option value="127"> Congolese </option>
+                        <option value="128"> South Korean </option>
+                        <option value="129"> North Korean </option>
+                        <option value="130"> Czech </option>
+                        <option value="131"> Kuwaiti </option>
+                        <option value="132"> Northern Mariana Islander </option>
+                        <option value="133"> Cuban </option>
+                        <option value="134"> Laotian </option>
+                        <option value="135"> Mosotho </option>
+                        <option value="136"> Latvian </option>
+                        <option value="137"> Liberian </option>
+                        <option value="138"> Libyan </option>
+                        <option value="139"> Liechtensteiner </option>
+                        <option value="140"> Lithunian </option>
+                        <option value="141"> Lebanese </option>
+                        <option value="142"> Luxembourger </option>
+                        <option value="143"> Macau </option>
+                        <option value="144"> Hungarian </option>
+                        <option value="145"> Malagasy </option>
+                        <option value="146"> Macedonian </option>
+                        <option value="147"> Malawian </option>
+                        <option value="148"> Maldivan </option>
+                        <option value="149"> Malaysian </option>
+                        <option value="150"> Malian </option>
+                        <option value="151"> Maltese </option>
+                        <option value="152"> Marshallese </option>
+                        <option value="153"> Martinican </option>
+                        <option value="154"> Mauritian </option>
+                        <option value="155"> Mahoran </option>
+                        <option value="156"> Mexican </option>
+                        <option value="157"> Egyptian </option>
+                        <option value="158"> Micronesian </option>
+                        <option value="159"> Mongolian </option>
+                        <option value="160"> Moldovan </option>
+                        <option value="161"> Monacan </option>
+                        <option value="162"> Montserratian </option>
+                        <option value="163"> Mauritanian </option>
+                        <option value="164"> Mozambican </option>
+                        <option value="165"> Mayanmarese </option>
+                        <option value="166"> Namibian </option>
+                        <option value="167"> Nauruan </option>
+                        <option value="168"> Nepalese </option>
+                        <option value="169"> Nigerien </option>
+                        <option value="170"> Nigerian </option>
+                        <option value="171"> Nicaraguan </option>
+                        <option value="172"> Niuean </option>
+                        <option value="173"> Christmas Islander </option>
+                        <option value="174"> Norfolk Islander </option>
+                        <option value="175"> Norwegian </option>
+                        <option value="176"> Central African</option>
+                        <option value="177"> Uzbekistani </option>
+                        <option value="178"> Pakistani </option>
+                        <option value="179"> Palauan </option>
+                        <option value="180"> Panamanian </option>
+                        <option value="181"> Papua New Guinean </option>
+                        <option value="182"> Paraguayan </option>
+                        <option value="183"> Peruvian </option>
+                        <option value="184"> Pitcairn Islander </option>
+                        <option value="185"> Polish </option>
+                        <option value="186"> Portugees </option>
+                        <option value="187"> Puerto Rican </option>
+                        <option value="188"> Réunion </option>
+                        <option value="189"> Romanian </option>
+                        <option value="190"> Rwandan </option>
+                        <option value="191"> Russian</option>
+                        <option value="192"> BarthÈlemoisSaint </option>
+                        <option value="193"> Saint Helenian</option>
+                        <option value="194"> Kittian</option>
+                        <option value="195"> Saint Lucian</option>
+                        <option value="196"> Saint-Martin (French part)</option>
+                        <option value="197"> Saint-Pierrais</option>
+                        <option value="198"> Saint Vincentian</option>
+                        <option value="199"> Samoan</option>
+                        <option value="200"> Sanmarinese</option>
+                        <option value="201"> Sao Tomean </option>
+                        <option value="202"> Senegalese</option>
+                        <option value="203"> Seychellois</option>
+                        <option value="204"> Serbian</option>
+                        <option value="205"> Sierra Leonean</option>
+                        <option value="206"> Singaporean</option>
+                        <option value="207"> Slovakian</option>
+                        <option value="208"> Slovenian</option>
+                        <option value="209"> Solomon Islander</option>
+                        <option value="210"> Somali</option>
+                        <option value="211"> Sri Lankan</option>
+                        <option value="212"> Sudanese</option>
+                        <option value="213"> Surinamer</option>
+                        <option value="214"> Syrian</option>
+                        <option value="215"> Saudi Arabian</option>
+                        <option value="216"> Svalbard and Jan Mayen Islands</option>
+                        <option value="217"> Swazi</option>
+                        <option value="218"> Chilean</option>
+                        <option value="219"> Tajikistani</option>
+                        <option value="220"> Tanzanian</option>
+                        <option value="221"> Thai</option>
+                        <option value="222"> Taiwanese</option>
+                        <option value="223"> Timorese</option>
+                        <option value="224"> Tokelauan</option>
+                        <option value="225"> Tongan</option>
+                        <option value="226"> Trinidadian</option>
+                        <option value="227"> Tunisian</option>
+                        <option value="228"> Turks and Caicos Islander</option>
+                        <option value="229"> Tuvaluan</option>
+                        <option value="231"> Turkmen</option>
+                        <option value="232"> Ugandan</option>
+                        <option value="233"> Ukrainian</option>
+                        <option value="234"> Omani</option>
+                        <option value="235"> Uruguayan</option>
+                        <option value="236"> Jordanian</option>
+                        <option value="237"> Ni-Vanuatu</option>
+                        <option value="238"> Venezuelan</option>
+                        <option value="239"> Vietnamese</option>
+                        <option value="240"> Wallisian</option>
+                        <option value="241">Yemeni</option>
+                        <option value="242"> New Caledonian</option>
+                        <option value="243">New Zealander</option>
+                        <option value="244">Greek</option>
+                        <option value="245">Zambian</option>
+                        <option value="246">Zimbabwean</option>
+                        <option value="247">U.S Virgin Island</option>
+                    </select>
+                    <br />
+                    <br />
+
+                    Document Number:
+                    <br />
+                    <input type="text" name="DocumentNumber" />
+                    <br />
+                    <br />
+
+                    Other Information:
+                    <br />
+                    <input type="text" name="OtherInformation" />
+                    <br />
+                    <br />
+
+                    Extra Info:
+                    <br />
+                    <input type="text" name="ExtraInfo" />
+                    <br />
+                    <br />
+
+                    Reference Number:
+                    <br />
+                    <input type="text" name="ReferenceNumber" />
+                    <br />
+                    <br />
+
+                </div>
+            </div>
+
+
+        <button type="submit" id="" name="" class="btn btn-danger">Search</button>
+        <br />
+        <br />
+
+    </form>
+
+@if (Model != null)
+{
+<textarea style="width: 0; min-height: 0;" hidden>@Html.Raw(Html.Encode(Model.response))</textarea>
+
+}
+<div id="json"></div>
+@*<pre class="line-numbers language-json" lang="json">
+    <code class="language-json">
+            @Html.Raw(Html.Encode(Model.response))
+        </code>
+    </pre>*@
+
+
+<script src="~/Assets/js/json-viewer.js"></script>
+
+<script>
+
+    var jsonObj = {};
+    var jsonViewer = new JSONViewer();
+    document.querySelector("#json").appendChild(jsonViewer.getContainer());
+    var textarea = document.querySelector("textarea");
+
+    // textarea value to JSON object
+    var setJSON = function () {
+        try {
+            var value = textarea.value;
+            jsonObj = JSON.parse(value);
+        }
+        catch (err) {
+            alert(err);
+        }
+    };
+
+    // load default value
+    if ('@json' !== '')
+    {
+        setJSON();
+        jsonViewer.showJSON(jsonObj);
+    }
+
+
+</script>

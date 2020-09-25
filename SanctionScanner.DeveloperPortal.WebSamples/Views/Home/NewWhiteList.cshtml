@@ -3,7 +3,7 @@
 @using Newtonsoft.Json
 
 @{
-    ViewBag.Title = "Search By Hashed Identity Number";
+    ViewBag.Title = "New White List";
 
     var json = "";
     if (Model != null)
@@ -12,44 +12,32 @@
 }
 <link href="~/Assets/css/json-viewer.css" rel="stylesheet">
 
-<h2>
-    Search By Hashed Identity Number
-</h2>
+<script type="text/javascript">
+    function check() {
+        var dropdown = document.getElementById("secim");
+        var current_value = dropdown.options[dropdown.selectedIndex].value;
+
+        if (current_value == "1") {
+            document.getElementById("gizle1").style.display = "block";
+            document.getElementById("gizle2").style.display = "block";
+        }
+        else {
+            document.getElementById("gizle1").style.display = "none";
+            document.getElementById("gizle2").style.display = "none";
+        }
+    }
+</script>
+
+<h2>New White List</h2>
 <hr />
-<p>
     <form action="" method="post">
         <div class="row">
             <br />
             <div class="col-md-6">
-                Identity Number:
-                <br />
-                <input type="text" name="id" />
-                <br />
-                <br />
 
-                Start:
+                Type Id:
                 <br />
-                <input type="number" name="start" value="0" max="50" min="0" />
-                <br />
-                <br />
-                Limit:
-                <br />
-                <input type="number" name="limit" value="50" max="50" min="1" />
-                <br />
-                <br />
-                Out Reference Number:
-                <br />
-                <input type="text" name="outReferenceNumber" />
-                <br />
-                <br />
-                Reference Number:
-                <br />
-                <input type="text" name="referenceNumber" />
-                <br />
-                <br />
-                Search Type:
-                <br />
-                <select name="searchType">
+                <select name="TypeId" id="secim" onchange="check();">
                     <option value="1">Individual</option>
                     <option value="2">Corporate</option>
                     <option value="3">Vessel</option>
@@ -57,13 +45,42 @@
                 </select>
                 <br />
                 <br />
+
+                Name:
+                <br />
+                <input type="text" name="name" />
+                <br />
+                <br />
+                <div id="gizle1">
+                    Identity Number:
+                    <br />
+                    <input type="text" name="IdentityNumber" />
+                    <br />
+                    <br />
+                </div>
             </div>
             <div class="col-md-6">
+                    <div id="gizle2">
+                        Passport Number:
+                        <br />
+                        <input type="text" name="PassportNumber" />
+                        <br />
+                        <br />
+                    </div>
+                    Reference Number:
+                    <br />
+                    <input type="text" name="ReferenceNumber" />
+                    <br />
+                    <br />
 
+                    Description:
+                    <br />
+                    <input type="text" name="Description" />
+                    <br />
+                    <br />
 
-
+                </div>
             </div>
-        </div>
 
 
         <button type="submit" id="" name="" class="btn btn-danger">Search</button>
@@ -76,7 +93,6 @@
             </div>
         </div>
     </form>
-</p>
 
 @if (Model != null)
 {

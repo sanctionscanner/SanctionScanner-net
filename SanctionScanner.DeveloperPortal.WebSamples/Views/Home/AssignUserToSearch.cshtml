@@ -3,7 +3,7 @@
 @using Newtonsoft.Json
 
 @{
-    ViewBag.Title = "Search By Passport Number";
+    ViewBag.Title = "Assign User To Search";
 
     var json = "";
     if (Model != null)
@@ -12,46 +12,22 @@
 }
 <link href="~/Assets/css/json-viewer.css" rel="stylesheet">
 
-<h2>
-    Search By Passport Number
-</h2>
+<h2>Assign User To Search</h2>
 <hr />
-<p>
     <form action="" method="post">
         <div class="row">
             <br />
             <div class="col-md-6">
-                Passport Number:
+                Scan Id:
                 <br />
-                <input type="text" name="passportNo" />
-                <br />
-                <br />
-
-                Start:
-                <br />
-                <input type="number" name="start" value="0" max="50" min="0" />
+                <input type="text" name="ScanId" />
                 <br />
                 <br />
-                Limit:
+                User Id:
                 <br />
-                <input type="number" name="limit" value="50" max="50" min="1" />
-                <br />
-                <br />
-                Out Reference Number:
-                <br />
-                <input type="text" name="outReferenceNumber" />
+                <input type="text" name="UserId" />
                 <br />
                 <br />
-                Reference Number:
-                <br />
-                <input type="text" name="referenceNumber" />
-                <br />
-                <br />
-            </div>
-            <div class="col-md-6">
-
-
-
             </div>
         </div>
 
@@ -59,14 +35,8 @@
         <button type="submit" id="" name="" class="btn btn-danger">Search</button>
         <br />
         <br />
-        <div class="row">
-            <br />
-            <div class="col-md-6">
-
-            </div>
-        </div>
+        
     </form>
-</p>
 
 @if (Model != null)
 {

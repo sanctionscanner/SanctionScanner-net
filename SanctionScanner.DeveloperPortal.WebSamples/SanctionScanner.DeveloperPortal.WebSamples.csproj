@@ -144,6 +144,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PostModels.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,6 +196,25 @@
     <Content Include="Views\Home\SearchByPassportNo.cshtml" />
     <Content Include="Views\Home\SearchByHashedIdentity.cshtml" />
     <Content Include="Views\Home\SearchByHashedPassportNo.cshtml" />
+    <Content Include="Views\Home\GetMyOrganizationUsers.cshtml" />
+    <Content Include="Views\Home\AssignUserToSearch.cshtml" />
+    <Content Include="Views\Home\SetSearchMatchStatus.cshtml" />
+    <Content Include="Views\Home\SetSearchRiskLevel.cshtml" />
+    <Content Include="Views\Home\AddMemoToSearch.cshtml" />
+    <Content Include="Views\Home\AddSearchToSafeList.cshtml" />
+    <Content Include="Views\Home\DeleteFromSafeListByReferenceNumber.cshtml" />
+    <Content Include="Views\Home\GetSearchByScanId.cshtml" />
+    <Content Include="Views\Home\GetSearchesByReferenceNumber.cshtml" />
+    <Content Include="Views\Home\GetLastWeekStatistics.cshtml" />
+    <Content Include="Views\Home\GetStatisticsWithDateRange.cshtml" />
+    <Content Include="Views\Home\NewBlackList.cshtml" />
+    <Content Include="Views\Home\GetBlackListById.cshtml" />
+    <Content Include="Views\Home\UpdateBlackList.cshtml" />
+    <Content Include="Views\Home\DeleteBlackList.cshtml" />
+    <Content Include="Views\Home\NewWhiteList.cshtml" />
+    <Content Include="Views\Home\GetWhiteListById.cshtml" />
+    <Content Include="Views\Home\UpdateWhiteList.cshtml" />
+    <Content Include="Views\Home\DeleteWhiteList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
